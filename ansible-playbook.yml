@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: all     ###### "all" means running this script in all your host #########
   become: yes
   gather_facts: yes 
   tasks:
@@ -11,12 +11,12 @@
 
     - name: Creating an empty file                          ####module2####
       file:
-         path: "/home/deploy/money"
+         path: "/home/nesdeploy/money"
          state: touch
     
     - name: Create a directory if it does not exist             ####module3####
       ansible.builtin.file:
-        path: /home/deploy/devops
+        path: /home/nesdeploy/devops
         state: directory
         mode: '0755'
     
