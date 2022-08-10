@@ -4,23 +4,27 @@
   gather_facts: yes 
   tasks:
 
-    - name: Update all packages to their latest version
+    - name: Update all packages to their latest version         ####module1####
       ansible.builtin.apt:
          name: "*"
          state: latest
 
-    - name: Creating an empty file
+    - name: Creating an empty file                          ####module2####
       file:
          path: "/home/deploy/money"
          state: touch
     
-    - name: Create a directory if it does not exist
+    - name: Create a directory if it does not exist             ####module3####
       ansible.builtin.file:
         path: /home/deploy/devops
         state: directory
         mode: '0755'
     
-    - name: Install the package "ansible joel"
+    - name: Install the package "ansible nestor"                  ####module4####
       apt:
         name: ansible
         state: present
+
+
+
+### commands : ansible-playbook playbook.yml -i host.yml
