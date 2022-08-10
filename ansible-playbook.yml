@@ -28,3 +28,22 @@
 
 
 ### commands : ansible-playbook playbook.yml -i host.yml
+
+
+
+######if you want to install many package with ansible-playbook######
+---
+- hosts: all     ###### "all" means running this script in all your host #########
+  become: yes
+  gather_facts: yes 
+  tasks:
+     name: Install the package "nestor"                  ####module4####
+      apt:
+        name: 
+          - ansible
+          - curl
+          - tree
+          - wget
+          - git
+        state: present
+
